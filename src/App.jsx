@@ -7,8 +7,8 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={ Main } />
         <Route path="/carrinho" component={ Carrinho } />
+        <Route exact path="/" component={ Main } />
       </Switch>
     );
   }
