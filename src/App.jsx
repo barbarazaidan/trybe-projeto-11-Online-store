@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
-// import { getCategories, getProductsFromCategoryAndQuery } from './services/api';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import Main from './pages/Main';
+import Carrinho from './pages/Carrinho';
 
 class App extends Component {
-  state = {
-    categories: [],
-  };
-
-  async componentDidMount() {
-    const categories = await getCategories();
-    this.setState({ categories });
-  }
-
   render() {
-    const { categories } = this.state;
     return (
-      <h1 data-testid="home-initial-message">
-        Digite algum termo de pesquisa ou escolha uma categoria.
-      </h1>
+      <Switch>
+        <Route exact path="/" component={ Main } />
+        <Route path="/carrinho" component={ Carrinho } />
+      </Switch>
     );
   }
 }
