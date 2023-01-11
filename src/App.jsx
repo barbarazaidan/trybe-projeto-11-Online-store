@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 // import { getCategories, getProductsFromCategoryAndQuery } from './services/api';
 import './App.css';
-import BarradeNavegacao from './components/BarraDeNavegacao';
-import { getCategories } from './services/api';
 
 class App extends Component {
   state = {
@@ -17,19 +15,9 @@ class App extends Component {
   render() {
     const { categories } = this.state;
     return (
-      <>
-        <nav id="sidebar">
-          { categories.map((category) => (
-            <BarradeNavegacao
-              name={ category.name }
-              key={ category.id }
-            />)) }
-        </nav>
-
-        <h1 data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </h1>
-      </>
+      <h1 data-testid="home-initial-message">
+        Digite algum termo de pesquisa ou escolha uma categoria.
+      </h1>
     );
   }
 }
