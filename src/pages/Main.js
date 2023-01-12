@@ -9,6 +9,7 @@ import {
 } from '../services/api';
 
 // import { getCategories, getProductsFromCategoryAndQuery } from './services/api';
+// subindo
 
 class Main extends Component {
   constructor() {
