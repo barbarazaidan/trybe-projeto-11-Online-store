@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import BarradeNavegacao from '../components/BarraDeNavegacao';
 import SearchProduct from '../components/SearchProduct';
-import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
+import { getCategories, getProductsFromCategoryAndQuery, getProductsFromCategory } from '../services/api';
 
 // import { getCategories, getProductsFromCategoryAndQuery } from './services/api';
 
@@ -14,10 +14,12 @@ class Main extends Component {
       categories: [],
       searchInput: '',
       returnSearchProducts: [],
+      // products: [],
     };
 
     this.searchProducts = this.searchProducts.bind(this);
     this.saveInput = this.saveInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   async componentDidMount() {
@@ -40,6 +42,13 @@ class Main extends Component {
     this.setState({ returnSearchProducts: results });
   }
 
+  handleChange = async (e) => {
+    const products = await getProductsFromCategory(e.target.id)
+    console.log(products);
+
+    this.setState({returnSearchProducts: products.results})
+  }
+
   render() {
     const { categories, returnSearchProducts } = this.state;
     // console.log(returnSearchProducts);
@@ -57,6 +66,8 @@ class Main extends Component {
             <BarradeNavegacao
               name={ category.name }
               key={ category.id }
+              id={ category.id }
+              onChange={ this.handleChange }
             />)) }
         </nav>
         <input
