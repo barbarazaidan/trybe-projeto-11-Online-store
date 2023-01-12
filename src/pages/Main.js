@@ -55,7 +55,7 @@ class Main extends Component {
 
   render() {
     const { categories, returnSearchProducts } = this.state;
-    // console.log(returnSearchProducts);
+    // console.log(returnSearchProduc);
 
     return (
       <>
