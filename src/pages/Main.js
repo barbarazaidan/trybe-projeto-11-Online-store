@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import BarradeNavegacao from '../components/BarraDeNavegacao';
 import SearchProduct from '../components/SearchProduct';
-import { getCategories, getProductsFromCategoryAndQuery, getProductsFromCategory } from '../services/api';
+import {
+  getCategories,
+  getProductsFromCategoryAndQuery,
+  getProductsFromCategory,
+} from '../services/api';
 
 // import { getCategories, getProductsFromCategoryAndQuery } from './services/api';
 
@@ -27,10 +31,12 @@ class Main extends Component {
     this.setState({ categories });
   }
 
-  saveInput({ target }) {
-    const { value } = target;
-    this.setState({ searchInput: value });
-  }
+  handleChange = async (e) => {
+    const products = await getProductsFromCategory(e.target.id);
+    console.log(products);
+
+    this.setState({ returnSearchProducts: products.results });
+  };
 
   async searchProducts() {
     // console.log('cliquei!');
@@ -42,11 +48,9 @@ class Main extends Component {
     this.setState({ returnSearchProducts: results });
   }
 
-  handleChange = async (e) => {
-    const products = await getProductsFromCategory(e.target.id)
-    console.log(products);
-
-    this.setState({returnSearchProducts: products.results})
+  saveInput({ target }) {
+    const { value } = target;
+    this.setState({ searchInput: value });
   }
 
   render() {
@@ -62,13 +66,13 @@ class Main extends Component {
           <p>Carrinho</p>
         </Link>
         <nav id="sidebar">
-          { categories.map((category) => (
+          {categories.map((category) => (
             <BarradeNavegacao
               name={ category.name }
               key={ category.id }
               id={ category.id }
               onChange={ this.handleChange }
-            />)) }
+            />))}
         </nav>
         <input
           type="text"
@@ -82,15 +86,15 @@ class Main extends Component {
         >
           Pesquisar
         </button>
-        { returnSearchProducts.length === 0
+        {returnSearchProducts.length === 0
           ? <h2>Nenhum produto foi encontrado</h2>
           : (
             <ul>
-              { returnSearchProducts.map((product) => (
+              {returnSearchProducts.map((product) => (
                 <li data-testid="product" key={ product.id }>
                   <SearchProduct product={ product } />
                 </li>
-              )) }
+              ))}
             </ul>
           )}
       </>
