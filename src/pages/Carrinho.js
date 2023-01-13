@@ -13,13 +13,16 @@ class Carrinho extends React.Component {
   render() {
     const { produtos } = this.state;
     return (
-      <div data-testid="shopping-cart-empty-message">
+      <div>
+        <p data-testid="shopping-cart-empty-message">
+          Seu carrinho está vazio
+        </p>
         <p data-testid="shopping-cart-product-quantity">
-          {produtos.length || 'Seu carrinho está vazio'}
+          {produtos?.length}
         </p>
         <div>
           <div>
-            {produtos.map((produto) => (
+            {produtos?.map((produto) => (
               <div key={ produto.id }>
                 <h2 data-testid="shopping-cart-product-name">
                   {produto.title}
