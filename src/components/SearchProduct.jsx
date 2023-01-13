@@ -8,9 +8,9 @@ class SearchProduct extends React.Component {
 
     return (
       <>
-        <h2>{ title }</h2>
+        <h2>{title}</h2>
         <img src={ thumbnail } alt={ `Foto do ${title}` } />
-        <h3>{ price }</h3>
+        <h3>{price}</h3>
       </>
     );
   }
