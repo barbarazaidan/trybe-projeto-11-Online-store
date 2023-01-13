@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import BarradeNavegacao from '../components/BarraDeNavegacao';
 import SearchProduct from '../components/SearchProduct';
 import {
@@ -72,8 +72,6 @@ class Main extends Component {
 
   render() {
     const { categories, returnSearchProducts } = this.state;
-    // console.log(returnSearchProduc);
-
     return (
       <>
         <h1 data-testid="home-initial-message">
@@ -130,12 +128,12 @@ class Main extends Component {
                   >
                     + 1
                   </button>
-                  <Link
+                  <NavLink
                     to={ `/product/${product.id}` }
                     data-testid="product-detail-link"
                   >
                     Ver detalhes
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>
