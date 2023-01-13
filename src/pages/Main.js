@@ -25,6 +25,7 @@ class Main extends Component {
     this.saveInput = this.saveInput.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.addProduct = this.addProduct.bind(this);
+    this.handleProductCard = this.handleProductCard.bind(this);
   }
 
   async componentDidMount() {
@@ -36,6 +37,10 @@ class Main extends Component {
     const products = await getProductsFromCategory(e.target.id);
     this.setState({ returnSearchProducts: products.results });
   };
+
+  handleProductCard() {
+    console.log('oi');
+  }
 
   async searchProducts() {
     // console.log('cliquei!');
@@ -125,6 +130,12 @@ class Main extends Component {
                   >
                     + 1
                   </button>
+                  <Link
+                    to={ `/product/${product.id}` }
+                    data-testid="product-detail-link"
+                  >
+                    Ver detalhes
+                  </Link>
                 </li>
               ))}
             </ul>
