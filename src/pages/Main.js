@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import BarradeNavegacao from '../components/BarraDeNavegacao';
 import SearchProduct from '../components/SearchProduct';
 import {
@@ -72,6 +72,19 @@ class Main extends Component {
     const { results } = await searchProduct;
     // console.log(results);
     this.setState({ returnSearchProducts: results });
+  }
+
+  addProduct(product) {
+    const { products } = this.state;
+    const number = -1;
+    const produtoAtual = products.findIndex((item) => item.id === product.id);
+    if (produtoAtual !== number && product.quantity > produtoAtual.quantity) {
+      products[produtoAtual].quantity = product.quantity;
+      this.setState({ products });
+      localStorage.setItem('Produtos', JSON.stringify(products));
+      return;
+    }
+    localStorage.setItem('Produtos', JSON.stringify([...products, product]));
   }
 
   saveInput({ target }) {

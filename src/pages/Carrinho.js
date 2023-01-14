@@ -64,7 +64,7 @@ class Carrinho extends React.Component {
       //                 Preço:
       //                 { produto.price }
       //               </p>
-      //               <button
+      //               <button<<<<<<< main-group-2-barbara-zaidan
       //                 type="button"
       //                 id="buttonIncrease"
       //                 data-testid="product-increase-quantity"
