@@ -5,7 +5,8 @@ import { getProductById } from '../services/api';
 
 class Product extends Component {
   state = {
-    products: [],
+    item: [],
+    save: [],
   };
 
   componentDidMount() {
@@ -19,53 +20,65 @@ class Product extends Component {
     const data = await getProductById(id);
 
     this.setState({
-      products: data,
+      item: data,
     });
   };
 
-  addProduct = (product) => {
-    const newList = [];
-    newList.push(product);
-    console.log(newList);
-
-    localStorage.setItem('Produtos', JSON.stringify(newList));
+  addCart = () => {
+    const { item } = this.state;
+    // console.log('item:', item);
+    const produtosSalvos = JSON.parse(localStorage.getItem('Produtos'));
+    if (produtosSalvos !== null) {
+      const saveLocal = [...produtosSalvos, item];
+      // console.log('savelocalif:', saveLocal);
+      this.setState(
+        { save: saveLocal },
+        () => {
+          const { save } = this.state;
+          localStorage.setItem('Produtos', JSON.stringify(save));
+        },
+      );
+    } else {
+      const saveLocal = [item];
+      // console.log('savelocalelse:', saveLocal);
+      this.setState({ save: saveLocal });
+      localStorage.setItem('Produtos', JSON.stringify(saveLocal));
+    }
   };
 
   render() {
-    const { products } = this.state;
-    const { addProduct } = this;
+    const { item } = this.state;
+
     return (
       <section>
         <h1>Detalhes do Produto</h1>
         <p data-testid="product-detail-name">
           {
-            products.title
+            item.title
           }
         </p>
         <img
           data-testid="product-detail-image"
-          src={ products.thumbnail }
-          alt={ products.title }
+          src={ item.thumbnail }
+          alt={ item.title }
         />
         <p data-testid="product-detail-price">
           R$
-          {products.price}
+          {item.price}
         </p>
         <Link
           to="/carrinho"
           data-testid="shopping-cart-button"
         >
-          Ir para o carrinho
+          Ir Para o Carrinho
         </Link>
-        <div>
-          <button
-            type="button"
-            onClick={ () => addProduct(products) }
-            data-testid="product-detail-add-to-cart"
-          >
-            adicionar e ir ao carrinho
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={ this.addCart }
+          data-testid="product-detail-add-to-cart"
+        >
+          adicionar ao carrinho
+        </button>
       </section>
     );
   }
