@@ -9,7 +9,6 @@ import {
 } from '../services/api';
 
 // import { getCategories, getProductsFromCategoryAndQuery } from './services/api';
-// subindo
 
 class Main extends Component {
   constructor() {
@@ -19,12 +18,14 @@ class Main extends Component {
       categories: [],
       searchInput: '',
       returnSearchProducts: [],
-      // products: [],
+      productsLocal: [],
     };
 
     this.searchProducts = this.searchProducts.bind(this);
     this.saveInput = this.saveInput.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    // this.addProduct = this.addProduct.bind(this);
+    this.handleProductCard = this.handleProductCard.bind(this);
   }
 
   async componentDidMount() {
@@ -34,9 +35,33 @@ class Main extends Component {
 
   handleChange = async (e) => {
     const products = await getProductsFromCategory(e.target.id);
-    console.log(products);
-
     this.setState({ returnSearchProducts: products.results });
+  };
+
+  handleProductCard() {
+    console.log('oi');
+  }
+
+  // addProduct(product) {
+  //   const { products } = this.state;
+  //   const number = -1;
+  //   const produtoAtual = products.findIndex((item) => item.id === product.id);
+  //   if (produtoAtual !== number && product.quantity > produtoAtual.quantity) {
+  //     products[produtoAtual].quantity = product.quantity;
+  //     this.setState({ products });
+  //     localStorage.setItem('Produtos', JSON.stringify(products));
+  //     return;
+  //   }
+  //   localStorage.setItem('Produtos', JSON.stringify([...products, product]));
+  // }
+
+  addCart = (product) => {
+    const { productsLocal } = this.state;
+    // console.log(productsLocal);
+    const saveLocal = [...productsLocal, product];
+    console.log('saveLocal:', saveLocal);
+    this.setState({ productsLocal: saveLocal });
+    localStorage.setItem('Produtos', JSON.stringify(saveLocal));
   };
 
   async searchProducts() {
@@ -56,7 +81,7 @@ class Main extends Component {
 
   render() {
     const { categories, returnSearchProducts } = this.state;
-    // console.log(returnSearchProducts);
+    // console.log(returnSearchProduc);
 
     return (
       <>
@@ -73,6 +98,7 @@ class Main extends Component {
               key={ category.id }
               id={ category.id }
               onChange={ this.handleChange }
+              addCarState={ this.state }
             />))}
         </nav>
         <input
@@ -93,7 +119,32 @@ class Main extends Component {
             <ul>
               {returnSearchProducts.map((product) => (
                 <li data-testid="product" key={ product.id }>
-                  <SearchProduct product={ product } />
+                  <SearchProduct product={ product } addCart={ this.addCart } />
+                  {/* <button
+                    type="button"
+                    data-testid="product-add-to-cart"
+                    onClick={ () => this.addProduct(product) }
+                  >
+                    Adicionar ao Carrinho
+                  </button> */}
+                  {/* <button
+                    type="button"
+                    onClick={ () => {
+                      if (!product.quantity) {
+                        product.quantity = 1;
+                      } else {
+                        product.quantity += 1;
+                      }
+                    } }
+                  >
+                    + 1
+                  </button> */}
+                  {/* <Link
+                    to={ `/product/${product.id}` }
+                    data-testid="product-detail-link"
+                  >
+                    Ver detalhes
+                  </Link> */}
                 </li>
               ))}
             </ul>
