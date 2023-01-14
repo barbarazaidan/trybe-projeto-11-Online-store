@@ -38,7 +38,7 @@ class Carrinho extends React.Component {
   };
 
   render() {
-    //const { produtos, contador } = this.state;
+    // const { produtos, contador } = this.state;
     const { produtos } = this.state;
     // console.log('produtos carrinho:', produtos);
     return (
