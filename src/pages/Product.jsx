@@ -52,7 +52,7 @@ class Product extends Component {
   produto = () => {
     const produtos = localStorage.getItem('Produtos');
     if (produtos) {
-      const produtosLocal = JSON.parse(produto);
+      const produtosLocal = JSON.parse(produtos);
       this.setState({
         produtos: produtosLocal,
       });
