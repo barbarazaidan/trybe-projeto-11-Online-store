@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class SearchProduct extends React.Component {
   render() {
     const { product, addCart } = this.props;
-    const { price, title, thumbnail } = product;
+    const { price, title, thumbnail, shipping } = product;
 
     return (
       <>
@@ -15,7 +15,10 @@ class SearchProduct extends React.Component {
         >
           <h2>{title}</h2>
           <img src={ thumbnail } alt={ `Foto do ${title}` } />
-          <h3>{price}</h3>
+          <h3>{`R$ ${price}`}</h3>
+          { shipping.free_shipping
+            ? <p data-testid="free-shipping">Frete gratis</p>
+            : null}
         </Link>
         <button
           type="button"
@@ -35,6 +38,9 @@ SearchProduct.propTypes = {
     title: propTypes.string,
     thumbnail: propTypes.string,
     id: propTypes.string,
+    shipping: propTypes.shape({
+      free_shipping: propTypes.bool,
+    }),
   }).isRequired,
   addCart: propTypes.func.isRequired,
 };
