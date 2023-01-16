@@ -8,10 +8,12 @@ class Product extends Component {
   state = {
     item: [],
     save: [],
+    produtos: [],
   };
 
   componentDidMount() {
     this.fetchApi();
+    this.produto();
   }
 
   fetchApi = async () => {
@@ -47,12 +49,22 @@ class Product extends Component {
     }
   };
 
+  produto = () => {
+    const produtosLocal = JSON.parse(localStorage.getItem('Produtos') || null);
+    this.setState({
+      produtos: produtosLocal,
+    });
+  };
+
   render() {
-    const { item } = this.state;
+    const { item, produtos } = this.state;
     const { match: { params: { id } } } = this.props;
 
     return (
       <section>
+        <p data-testid="shopping-cart-size">
+          { produtos.length }
+        </p>
         <h1>Detalhes do Produto</h1>
         <p data-testid="product-detail-name">
           {

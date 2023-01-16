@@ -105,12 +105,13 @@ class Carrinho extends React.Component {
           )
           : (
             <div>
-              <p>
+              <p data-testid="shopping-cart-size">
                 {produtos.length}
               </p>
               <div>
                 {produtos.map((produto) => (
                   <div key={ produto.id }>
+                    { produto.id }
                     <CartProduct
                       produto={ produto }
                       removeProduct={ this.removeProduct }
