@@ -7,9 +7,14 @@ export default class CartProduct extends React.Component {
   };
 
   increaseProduct = () => {
-    this.setState((estadoAnterior) => ({
-      contador: estadoAnterior.contador + 1,
-    }));
+    const { produto } = this.props;
+    const { contador } = this.state;
+
+    if (produto.available_quantity > contador) {
+      this.setState((estadoAnterior) => ({
+        contador: estadoAnterior.contador + 1,
+      }));
+    }
   };
 
   decreaseProduct = () => {
@@ -67,6 +72,7 @@ CartProduct.propTypes = {
   produto: propTypes.shape({
     title: propTypes.string,
     price: propTypes.number,
+    available_quantity: propTypes.number,
   }).isRequired,
   removeProduct: propTypes.func.isRequired,
 };
