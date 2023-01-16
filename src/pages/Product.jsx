@@ -50,10 +50,17 @@ class Product extends Component {
   };
 
   produto = () => {
-    const produtosLocal = JSON.parse(localStorage.getItem('Produtos') || null);
-    this.setState({
-      produtos: produtosLocal,
-    });
+    const produtos = localStorage.getItem('Produtos');
+    if (produtos) {
+      const produtosLocal = JSON.parse(produto);
+      this.setState({
+        produtos: produtosLocal,
+      });
+    } else {
+      this.setState({
+        produtos: [],
+      });
+    }
   };
 
   render() {
