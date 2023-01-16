@@ -31,6 +31,12 @@ class Main extends Component {
   async componentDidMount() {
     const categories = await getCategories();
     this.setState({ categories });
+    const local = JSON.parse(localStorage.getItem('Produtos'));
+    if (local) {
+      this.setState({
+        productsLocal: local,
+      });
+    }
   }
 
   handleChange = async (e) => {
@@ -59,7 +65,7 @@ class Main extends Component {
     const { productsLocal } = this.state;
     // console.log(productsLocal);
     const saveLocal = [...productsLocal, product];
-    console.log('saveLocal:', saveLocal);
+    // console.log('saveLocal:', saveLocal);
     this.setState({ productsLocal: saveLocal });
     localStorage.setItem('Produtos', JSON.stringify(saveLocal));
   };
@@ -93,7 +99,7 @@ class Main extends Component {
   }
 
   render() {
-    const { categories, returnSearchProducts } = this.state;
+    const { categories, returnSearchProducts, productsLocal } = this.state;
     // console.log(returnSearchProduc);
 
     return (
@@ -102,7 +108,11 @@ class Main extends Component {
           Digite algum termo de pesquisa ou escolha uma categoria.
         </h1>
         <Link data-testid="shopping-cart-button" to="/carrinho">
+
           <p>Carrinho</p>
+          <p data-testid="shopping-cart-size">
+            { productsLocal.length }
+          </p>
         </Link>
         <nav id="sidebar">
           {categories.map((category) => (
