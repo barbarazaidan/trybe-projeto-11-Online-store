@@ -1,3 +1,7 @@
+.apresentaProductos {
+  display: flex;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +11,266 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.btnCarrinho {
+  background-color: #f8f9fa;
+}
+
+.btnCarrinho:hover {
+  background-color: #d3d4d5;;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: right;
+}
+
+.btnPesquisar {
+  border-radius: 0 15px 15px 0;
+  padding: 0 30px;
+  background-color: rgb(221, 215, 215);
+}
+
+.cartProduct {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding: 13px;
+  border: 1px solid rgb(240, 240, 240);
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 30px 20px;
+}
+
+.cartProdutoCarrinho {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  border: 1px solid rgb(240, 240, 240);
+}
+
+.cartProdutoCarrinhoInfo {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  width: 150px;
+  box-sizing: border-box;
+  margin: 0 20px;
+  height: 180px; 
+}
+
+.cartProductCarrinhoTitle {
+  display: -webkit-box;
+  color: rgb(57, 63, 71);
+  font-size: 18px;
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.cartProducLink {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  text-align: center;
+  height: 400px ;
+}
+
+.checkoutLista {
+  padding: 20px;
+  margin-left: 15px;
+  font-size: 20px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.divInputPesquisar {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  padding: 20px 20px 30px 20px;
+}
+
+.formCheckout {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-left: 20px;
+}
+
+#formDeAvaliacao {
+  margin-top: 200px;
+}
+
+.freteGratis {
+  color: black;
+  font-size: 20px;
+}
+
+.header {
+  background-color: #3A6FFF;
+  display: flex;
+  justify-content:right;
+  padding: 50px;
+}
+
+h3 {
+  color: black;
+  font-size: 20px;
+}
+
+.inputPesquisa {
+  border-radius: 15px 0 0 15px;
+  padding: 20px 20px 20px 180px;
+}
+
+.irParaCheckout {
+  font-size: 20px;
+  margin-right: 50px;
+  margin-top: -70px;
+  text-align: right;
+}
+
+.itensNoCarrinho {
+  font-size: 20px;
+  margin-right: 50px;
+  text-align: right;
+}
+
+.itensNoCarrinhoCheckout {
+  font-size: 25px;
+  margin-left: 15px;
+}
+
+.linkCarrinho {
+  color: black;
+  display: flex;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
+}
+
+.navegacaoCategorias {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.nenhumProduto {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.productTitle {
+  display: -webkit-box;
+  color: rgb(57, 63, 71);
+  font-size: 12px;
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+#produtoDetalhesBotaoCarrinho {
+  background-color: rgba(32, 121, 32, 0.807);
+  color: white;
+  font-size: 17px;
+  margin-right: 230px;
+  padding: 15px 30px;
+}
+
+#produtoDetalhesDiv {
+  background-color: rgba(199, 196, 196, 0.097);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  padding: 40px;
+  width: 1000px;
+}
+
+#produtoDetalhesImagem {
+  width: 200px;
+}
+
+#produtoDetalhesLinkBotao {
+  background-color: #3A6FFF;
+  color: white;
+  font-size: 17px;
+  margin-left: 230px;
+  padding: 15px 50px;
+}
+
+#produtoDetalhesPreco {
+  color: black;
+  font-size: 25px;
+  margin-left: 40px;
+}
+
+#produtoDetalhesTitulo {
+  font-size: 30px;
+  margin-left: 40px;
+}
+
+.qntCarrinho {
+  margin: 0 0 0 15px;
+}
+
+.qntProdutoCarrinho {
+  text-align: center;
+  font-size: 18px;
+  margin: 5px;
+}
+
+.secaoCarrinho {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px;
+}
+
+.tituloDasPaginas {
+  background-color: #3A6FFF ;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 50px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tituloPrincipal{
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 40px;
+  margin-top: -90px;
+  text-align: center;
+  z-index: -1;
+}
+
+.ulProducts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  width: 100%;
+}
+
+/* @media screen and (max-width: 1400px) {
+  .tituloPrincipal {
+    margin-bottom: 41px;
+    margin-top: -90px;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 500px) {
+  .tituloPrincipal {
+    margin-bottom: 17px;
+    margin-top: -90px;
+  }
+} */

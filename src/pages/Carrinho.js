@@ -105,13 +105,14 @@ class Carrinho extends React.Component {
           )
           : (
             <div>
-              <p data-testid="shopping-cart-size">
-                {produtos.length}
+              <h1 className="tituloDasPaginas">Carrinho de compras</h1>
+              <p data-testid="shopping-cart-size" className="itensNoCarrinho">
+                {`🛒 Itens no carrinho: ${produtos.length}`}
               </p>
-              <div>
+              <div className="secaoCarrinho">
                 {produtos.map((produto) => (
-                  <div key={ produto.id }>
-                    { produto.id }
+                  <div key={ produto.id } className="cartProdutoCarrinho">
+                    {/* { produto.id } */}
                     <CartProduct
                       produto={ produto }
                       removeProduct={ this.removeProduct }
@@ -122,13 +123,14 @@ class Carrinho extends React.Component {
             </div>
           )}
         <br />
-        <div>
+        <div className="irParaCheckout">
           <Link
             to="/checkout"
             data-testid="checkout-products"
           >
             <button
               type="button"
+              className="btn btn-primary btn-lg"
             >
               Ir para Checkout
             </button>

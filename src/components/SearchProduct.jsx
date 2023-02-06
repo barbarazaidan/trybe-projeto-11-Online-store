@@ -8,26 +8,28 @@ class SearchProduct extends React.Component {
     const { price, title, thumbnail, shipping } = product;
 
     return (
-      <>
+      <div className="cartProduct">
         <Link
           to={ `/product/${product.id}` }
           data-testid="product-detail-link"
+          className="cartProducLink"
         >
-          <h2>{title}</h2>
+          <h2 className="productTitle">{title}</h2>
           <img src={ thumbnail } alt={ `Foto do ${title}` } />
           <h3>{`R$ ${price}`}</h3>
           { shipping.free_shipping
-            ? <p data-testid="free-shipping">Frete gratis</p>
-            : null}
+            ? <p data-testid="free-shipping" className="freteGratis">Frete gratis</p>
+            : null }
         </Link>
         <button
           type="button"
           onClick={ () => addCart(product) }
           data-testid="product-add-to-cart"
+          className="btn btn-outline-success sm"
         >
           Adicionar ao carrinho
         </button>
-      </>
+      </div>
     );
   }
 }

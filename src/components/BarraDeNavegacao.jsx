@@ -7,13 +7,14 @@ export default class BarradeNavegacao extends Component {
     const { name, id, onChange } = this.props;
 
     return (
-      <label htmlFor={ id }>
+      <label htmlFor={ id } className="form-check form-check-inline p-2 ms-1">
         <input
           name="category"
           value={ name }
           id={ id }
           type="radio"
           data-testid="category"
+          className="form-check-input"
           onChange={ onChange }
           // idCategory = { id }
         />

@@ -31,27 +31,34 @@ export default class CartProduct extends React.Component {
     const { contador } = this.state;
     return (
       <>
-        <h2 data-testid="shopping-cart-product-name">
-          {produto.title}
-        </h2>
-        <p>
-          Preço:
-          { produto.price }
-        </p>
+        <div className="cartProdutoCarrinhoInfo">
+          <h2
+            data-testid="shopping-cart-product-name"
+            className="cartProductCarrinhoTitle"
+          >
+            {produto.title}
+          </h2>
+          <p>
+            Preço:
+            { produto.price }
+          </p>
+        </div>
         <button
           type="button"
           id="buttonIncrease"
           data-testid="product-increase-quantity"
+          className="btn btn-secondary"
           onClick={ this.increaseProduct }
         >
           +
         </button>
-        <p data-testid="shopping-cart-product-quantity">
+        <p data-testid="shopping-cart-product-quantity" className="qntProdutoCarrinho">
           {contador}
         </p>
         <button
           type="button"
           data-testid="product-decrease-quantity"
+          className="btn btn-secondary"
           onClick={ this.decreaseProduct }
         >
           -
@@ -59,6 +66,7 @@ export default class CartProduct extends React.Component {
         <button
           type="button"
           data-testid="remove-product"
+          className="btn btn-danger p-1 mt-2"
           onClick={ () => removeProduct(produto) }
         >
           excluir

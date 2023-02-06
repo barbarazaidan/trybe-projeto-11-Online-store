@@ -68,7 +68,7 @@ class FormAvaliacao extends React.Component {
   render() {
     const { email, textarea, validacao, avaliacao } = this.state;
     return (
-      <div>
+      <div id="formDeAvaliacao">
         Avaliação
         <div>
           <label htmlFor="email">

@@ -33,7 +33,7 @@ class Product extends Component {
     const produtosSalvos = JSON.parse(localStorage.getItem('Produtos'));
     if (produtosSalvos !== null) {
       const saveLocal = [...produtosSalvos, item];
-      // console.log('savelocalif:', saveLocal);
+      console.log('savelocalif:', saveLocal);
       this.setState(
         { save: saveLocal },
         () => {
@@ -69,36 +69,43 @@ class Product extends Component {
 
     return (
       <section>
-        <p data-testid="shopping-cart-size">
-          { produtos.length }
+        <h1 className="tituloDasPaginas">Detalhes do Produto</h1>
+        <p data-testid="shopping-cart-size" className="itensNoCarrinho">
+          {`🛒 Itens no carrinho: ${produtos.length}`}
         </p>
-        <h1>Detalhes do Produto</h1>
-        <p data-testid="product-detail-name">
-          {
-            item.title
-          }
-        </p>
-        <img
-          data-testid="product-detail-image"
-          src={ item.thumbnail }
-          alt={ item.title }
-        />
-        <p data-testid="product-detail-price">
-          R$
-          {item.price}
-        </p>
-        <Link
-          to="/carrinho"
-          data-testid="shopping-cart-button"
-        >
-          Ir Para o Carrinho
-        </Link>
+        <div id="produtoDetalhesDiv">
+          <img
+            data-testid="product-detail-image"
+            src={ item.thumbnail }
+            alt={ item.title }
+            id="produtoDetalhesImagem"
+          />
+          <div id="produtoDetalhesTituloPreco">
+            <p data-testid="product-detail-name" id="produtoDetalhesTitulo">
+              {
+                item.title
+              }
+            </p>
+            <p data-testid="product-detail-price" id="produtoDetalhesPreco">
+              R$
+              {item.price}
+            </p>
+          </div>
+        </div>
         <button
           type="button"
           onClick={ this.addCart }
           data-testid="product-detail-add-to-cart"
+          id="produtoDetalhesBotaoCarrinho"
         >
-          adicionar ao carrinho
+          ADICIONAR AO CARRINHO
+        </button>
+        <button type="button" id="produtoDetalhesLinkBotao">
+          IR PARA O CARRINHO
+          <Link
+            to="/carrinho"
+            data-testid="shopping-cart-button"
+          />
         </button>
         <FormAvaliacao id={ id } />
       </section>

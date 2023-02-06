@@ -73,10 +73,10 @@ class Checkout extends React.Component {
 
     return (
       <div>
-        <h2>Checkout</h2>
+        <h2 className="tituloDasPaginas">Checkout</h2>
         <div>
-          Produtos no carrinho
-          <ul>
+          <p className="itensNoCarrinhoCheckout">Produtos no carrinho:</p>
+          <ul className="checkoutLista">
             { carrinho.map(({ title, id }) => (
               <li
                 key={ id }
@@ -86,119 +86,152 @@ class Checkout extends React.Component {
             )) }
           </ul>
         </div>
-        <form>
-          <label htmlFor="nome">
-            Nome Completo:
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              value={ nome }
-              onChange={ this.handleChange }
-              data-testid="checkout-fullname"
-            />
-          </label>
-          <label htmlFor="Email">
-            Email:
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={ email }
-              onChange={ this.handleChange }
-              data-testid="checkout-email"
-            />
-          </label>
-          <label htmlFor="cpf">
-            CPF:
-            <input
-              type="text"
-              id="cpf"
-              name="cpf"
-              value={ cpf }
-              onChange={ this.handleChange }
-              data-testid="checkout-cpf"
-            />
-          </label>
-          <label htmlFor="telefone">
-            Telefone:
-            <input
-              type="text"
-              id="telefone"
-              name="telefone"
-              value={ telefone }
-              onChange={ this.handleChange }
-              data-testid="checkout-phone"
-            />
-          </label>
-          <label htmlFor="cep">
-            CEP:
-            <input
-              type="text"
-              id="cep"
-              name="cep"
-              value={ cep }
-              onChange={ this.handleChange }
-              data-testid="checkout-cep"
-            />
-          </label>
-          <label htmlFor="endereco">
-            Endereço:
-            <input
-              type="text"
-              id="endereco"
-              name="endereco"
-              value={ endereco }
-              onChange={ this.handleChange }
-              data-testid="checkout-address"
-            />
-          </label>
-          <div>Forma de Pagamento</div>
-          <div>
-            <label htmlFor="boleto">
+        <form className="formCheckout">
+          <section>
+            <label htmlFor="nome" className="form-label">
+              Nome Completo:
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                value={ nome }
+                onChange={ this.handleChange }
+                className="form-control"
+                data-testid="checkout-fullname"
+              />
+            </label>
+          </section>
+
+          <section className="col-md-6">
+            <label htmlFor="Email" className="form-label">
+              Email:
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={ email }
+                onChange={ this.handleChange }
+                className="form-control"
+                data-testid="checkout-email"
+              />
+            </label>
+          </section>
+
+          <section className="col-md-6">
+            <label htmlFor="cpf" className="form-label">
+              CPF:
+              <input
+                type="text"
+                id="cpf"
+                name="cpf"
+                value={ cpf }
+                onChange={ this.handleChange }
+                className="form-control"
+                data-testid="checkout-cpf"
+              />
+            </label>
+          </section>
+
+          <section className="col-md-6">
+            <label htmlFor="telefone" className="form-label">
+              Telefone:
+              <input
+                type="text"
+                id="telefone"
+                name="telefone"
+                value={ telefone }
+                onChange={ this.handleChange }
+                className="form-control"
+                data-testid="checkout-phone"
+              />
+            </label>
+          </section>
+
+          <section className="col-md-6">
+            <label htmlFor="cep" className="form-label">
+              CEP:
+              <input
+                type="text"
+                id="cep"
+                name="cep"
+                value={ cep }
+                onChange={ this.handleChange }
+                className="form-control"
+                data-testid="checkout-cep"
+              />
+            </label>
+          </section>
+
+          <section className="col-md-6">
+            <label htmlFor="endereco" className="form-label">
+              Endereço:
+              <input
+                type="text"
+                id="endereco"
+                name="endereco"
+                value={ endereco }
+                onChange={ this.handleChange }
+                className="form-control"
+                data-testid="checkout-address"
+              />
+            </label>
+          </section>
+
+          <p>Forma de Pagamento</p>
+
+          <section className="col-12">
+            <label htmlFor="boleto" className="form-check-label m-3">
               Boleto
               <input
                 type="radio"
                 id="boleto"
                 name="pagamento"
                 onChange={ this.handleRadioChange }
+                className="form-check-input"
                 data-testid="ticket-payment"
               />
             </label>
-            <label htmlFor="visa">
+
+            <label htmlFor="visa" className="form-check-label m-3">
               Visa
               <input
                 type="radio"
                 id="visa"
                 name="pagamento"
                 onChange={ this.handleRadioChange }
+                className="form-check-input"
                 data-testid="visa-payment"
               />
             </label>
-            <label htmlFor="master">
+
+            <label htmlFor="master" className="form-check-label m-3">
               Master
               <input
                 type="radio"
                 id="master"
                 name="pagamento"
                 onChange={ this.handleRadioChange }
+                className="form-check-input"
                 data-testid="master-payment"
               />
             </label>
-            <label htmlFor="elo">
+
+            <label htmlFor="elo" className="form-check-label m-3">
               Elo
               <input
                 type="radio"
                 id="elo"
                 name="pagamento"
                 onChange={ this.handleRadioChange }
+                className="form-check-input"
                 data-testid="elo-payment"
               />
             </label>
-          </div>
+          </section>
           <button
             type="submit"
             data-testid="checkout-btn"
+            className="btn btn-primary"
             onClick={ this.handleSubmit }
           >
             Finalizar Compra

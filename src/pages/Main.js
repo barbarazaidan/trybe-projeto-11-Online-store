@@ -104,17 +104,27 @@ class Main extends Component {
 
     return (
       <>
-        <h1 data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
+        <div className="header">
+          <button
+            type="button"
+            className="btnCarrinho"
+          >
+            <Link
+              data-testid="shopping-cart-button"
+              to="/carrinho"
+              className="linkCarrinho"
+            >
+              🛒 Carrinho
+              <p data-testid="shopping-cart-size" className="qntCarrinho">
+                { productsLocal.length }
+              </p>
+            </Link>
+          </button>
+        </div>
+        <h1 data-testid="home-initial-message" className="tituloPrincipal">
+          Digite algum termo de pesquisa ou escolha uma categoria
         </h1>
-        <Link data-testid="shopping-cart-button" to="/carrinho">
-
-          <p>Carrinho</p>
-          <p data-testid="shopping-cart-size">
-            { productsLocal.length }
-          </p>
-        </Link>
-        <nav id="sidebar">
+        <nav id="sidebar" className="navegacaoCategorias">
           {categories.map((category) => (
             <BarradeNavegacao
               name={ category.name }
@@ -124,33 +134,38 @@ class Main extends Component {
               addCarState={ this.state }
             />))}
         </nav>
-        <input
-          type="text"
-          data-testid="query-input"
-          onChange={ this.saveInput }
-        />
-        <button
-          type="button"
-          data-testid="query-button"
-          onClick={ this.searchProducts }
-        >
-          Pesquisar
-        </button>
+        <div className="divInputPesquisar">
+          <input
+            type="text"
+            data-testid="query-input"
+            className="inputPesquisa"
+            onChange={ this.saveInput }
+          />
+          <button
+            type="button"
+            data-testid="query-button"
+            className="btnPesquisar"
+            onClick={ this.searchProducts }
+          >
+            Pesquisar
+          </button>
+        </div>
         {returnSearchProducts.length === 0
-          ? <h2>Nenhum produto foi encontrado</h2>
+          ? <h2 className="nenhumProduto">Nenhum produto foi encontrado</h2>
           : (
-            <ul>
-              {returnSearchProducts.map((product) => (
-                <li data-testid="product" key={ product.id }>
-                  <SearchProduct product={ product } addCart={ this.addCart } />
-                  {/* <button
+            <div className="seccaoProdutos">
+              <ul className="ulProducts">
+                {returnSearchProducts.map((product) => (
+                  <li data-testid="product" key={ product.id }>
+                    <SearchProduct product={ product } addCart={ this.addCart } />
+                    {/* <button
                     type="button"
                     data-testid="product-add-to-cart"
                     onClick={ () => this.addProduct(product) }
                   >
                     Adicionar ao Carrinho
                   </button> */}
-                  {/* <button
+                    {/* <button
                     type="button"
                     onClick={ () => {
                       if (!product.quantity) {
@@ -162,15 +177,16 @@ class Main extends Component {
                   >
                     + 1
                   </button> */}
-                  {/* <Link
+                    {/* <Link
                     to={ `/product/${product.id}` }
                     data-testid="product-detail-link"
                   >
                     Ver detalhes
                   </Link> */}
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
       </>
     );
