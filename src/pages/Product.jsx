@@ -7,7 +7,7 @@ import FormAvaliacao from './FormAvaliacao';
 class Product extends Component {
   state = {
     item: [],
-    save: [],
+    // save: [],
     produtos: [],
   };
 
@@ -35,17 +35,20 @@ class Product extends Component {
       const saveLocal = [...produtosSalvos, item];
       console.log('savelocalif:', saveLocal);
       this.setState(
-        { save: saveLocal },
+        { produtos: saveLocal },
         () => {
-          const { save } = this.state;
-          localStorage.setItem('Produtos', JSON.stringify(save));
+          // const { save } = this.state;
+          const { produtos } = this.state;
+          // localStorage.setItem('Produtos', JSON.stringify(save));
+          localStorage.setItem('Produtos', JSON.stringify(produtos));
         },
       );
     } else {
       const saveLocal = [item];
       // console.log('savelocalelse:', saveLocal);
-      this.setState({ save: saveLocal });
-      localStorage.setItem('Produtos', JSON.stringify(saveLocal));
+      // this.setState({ save: saveLocal });
+      this.setState({ produtos: saveLocal });
+      // localStorage.setItem('Produtos', JSON.stringify(saveLocal));
     }
   };
 
@@ -100,13 +103,14 @@ class Product extends Component {
         >
           ADICIONAR AO CARRINHO
         </button>
-        <button type="button" id="produtoDetalhesLinkBotao">
-          IR PARA O CARRINHO
-          <Link
-            to="/carrinho"
-            data-testid="shopping-cart-button"
-          />
-        </button>
+        <Link
+          to="/carrinho"
+          data-testid="shopping-cart-button"
+        >
+          <button type="button" id="produtoDetalhesLinkBotao">
+            IR PARA O CARRINHO
+          </button>
+        </Link>
         <FormAvaliacao id={ id } />
       </section>
     );
