@@ -106,7 +106,38 @@ code {
 }
 
 #formDeAvaliacao {
-  margin-top: 200px;
+  display: flex;
+  margin-left: 20px;
+  width: 1000px;
+}
+
+.formDeAvaliacaoBotao {
+  background-color: rgba(32, 74, 121, 0.807);
+  color: white;
+  font-size: 17px;
+  margin-left: 45px;
+  padding: 0px 50px;
+}
+
+.formDeAvaliacaoCheckboxDiv {
+  width: 1000px;
+}
+
+#formDeAvaliacaoComentarios {
+  border-radius: 10px 10px 0 0;
+  margin: 40px 0 0 20px;
+  width: 1000px;
+}
+
+.formDeAvaliacaoTextArea {
+  resize: none;
+}
+
+#formDeAvaliacaoTitulo {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 700;
+  font-size: 30px;
+  margin: 200px 0px 30px 300px;
 }
 
 .freteGratis {

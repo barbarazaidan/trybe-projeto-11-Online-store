@@ -22,8 +22,8 @@ class FormAvaliacao extends React.Component {
   };
 
   handleRadioChange = ({ target }) => {
-    const { id } = target;
-    this.setState({ rating: id });
+    const { value } = target;
+    this.setState({ rating: value });
   };
 
   validacaoAvaliacao = () => {
@@ -53,7 +53,7 @@ class FormAvaliacao extends React.Component {
 
   limparAvaliacao = () => {
     this.setState({
-      rating: 0,
+      rating: '',
       email: '',
       textarea: '',
     });
@@ -68,10 +68,10 @@ class FormAvaliacao extends React.Component {
   render() {
     const { email, textarea, validacao, avaliacao } = this.state;
     return (
-      <div id="formDeAvaliacao">
-        Avaliação
-        <div>
-          <label htmlFor="email">
+      <div className="formDeAvaliacaoDiv">
+        <h2 id="formDeAvaliacaoTitulo"> AVALIAÇÃO</h2>
+        <div id="formDeAvaliacao">
+          <label htmlFor="email" className="form-label me-4">
             Email
             <input
               type="email"
@@ -79,83 +79,89 @@ class FormAvaliacao extends React.Component {
               name="email"
               value={ email }
               data-testid="product-detail-email"
+              className="form-control"
               onChange={ this.handleChange }
             />
           </label>
-          <label htmlFor="1">
+          <label htmlFor="notaRadio" className="form-label me-4">
+            Nota:
+            <input
+              type="radio"
+              id="notaRadio"
+              value="1"
+              name="rating"
+              data-testid="1-rating"
+              className="form-check-input"
+              onChange={ this.handleRadioChange }
+            />
             1
             <input
               type="radio"
-              id="1"
+              id="notaRadio"
+              value="2"
               name="rating"
-              data-testid="1-rating"
+              data-testid="2-rating"
+              className="form-check-input"
               onChange={ this.handleRadioChange }
             />
-          </label>
-          <label htmlFor="2">
             2
             <input
               type="radio"
-              id="2"
+              id="notaRadio"
+              value="3"
               name="rating"
-              data-testid="2-rating"
+              data-testid="3-rating"
+              className="form-check-input"
               onChange={ this.handleRadioChange }
             />
-          </label>
-          <label htmlFor="3">
             3
             <input
               type="radio"
-              id="3"
+              id="notaRadio"
+              value="4"
               name="rating"
-              data-testid="3-rating"
+              data-testid="4-rating"
+              className="form-check-input"
               onChange={ this.handleRadioChange }
             />
-          </label>
-          <label htmlFor="4">
             4
             <input
               type="radio"
-              id="4"
-              name="rating"
-              data-testid="4-rating"
-              onChange={ this.handleRadioChange }
-            />
-          </label>
-          <label htmlFor="5">
-            5
-            <input
-              type="radio"
-              id="5"
+              id="notaRadio"
+              value="5"
               name="rating"
               data-testid="5-rating"
+              className="form-check-input"
               onChange={ this.handleRadioChange }
             />
+            5
           </label>
-          <label htmlFor="textarea">
+          <label htmlFor="textarea" className="form-label">
             <textarea
               id="textarea"
               name="textarea"
               value={ textarea }
               placeholder="Deixe seu comentário sobre o produto"
               data-testid="product-detail-evaluation"
+              className="form-control formDeAvaliacaoTextArea"
               onChange={ this.handleChange }
             />
           </label>
           <button
             type="submit"
             data-testid="submit-review-btn"
+            className="formDeAvaliacaoBotao"
             onClick={ this.validacaoAvaliacao }
           >
-            Avaliar
+            AVALIAR
           </button>
         </div>
-        <div>
+        <div id="formDeAvaliacaoComentarios">
           {!validacao && <p data-testid="error-msg">Campos inválidos</p>}
           {avaliacao.map((comentario, index) => (
             <div key={ index }>
               <p data-testid="review-card-email">{comentario.email}</p>
-              <p data-testid="review-card-rating">{comentario.rating}</p>
+              <p data-testid="review-card-rating">{`Nota: ${comentario.rating}`}</p>
               <p data-testid="review-card-evaluation">{comentario.textarea}</p>
             </div>
           ))}
