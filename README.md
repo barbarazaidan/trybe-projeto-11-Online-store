@@ -220,7 +220,9 @@ Neste projeto, os requisitos que desenvolvi de forma individual foram o 5 e o 10
 
 > Para desenvolver o de número 10, precisei refatorar os requisitos do 7 ao 9. Assim, alterei o App.jsx, criei o componente CartProduct.jsx e recriei o Product.jsx, bem como fiz alterações no SearchProduct.jsx, no Carrinho.js, na Main.js e no api.js.
 
-> Em relação aos requisitos 1, 2, 14 e 15 participei do desenvolvimento junto com o grupo, dando sugestões e opiniões. 
+> Em relação aos requisitos 1, 2, 14 e 15 participei do desenvolvimento junto com o grupo, dando sugestões e opiniões.
+
+> Depois de finalizado o projeto, estilizei os arquivos. Para isto, trabalhei com CSS dentro do index.css e fiz algumas modificações nos componentes, que estão descritas nos commits.
 
 > Todos os demais arquivos dentro da pasta /src não citados por mim foram desenvolvidos por outros integrantes do grupo. 
 
