@@ -45,10 +45,10 @@ class Product extends Component {
       );
     } else {
       const saveLocal = [item];
-      // console.log('savelocalelse:', saveLocal);
+      console.log('savelocalelse:', saveLocal);
       // this.setState({ save: saveLocal });
       this.setState({ produtos: saveLocal });
-      // localStorage.setItem('Produtos', JSON.stringify(saveLocal));
+      localStorage.setItem('Produtos', JSON.stringify(saveLocal));
     }
   };
 
