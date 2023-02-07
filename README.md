@@ -222,9 +222,9 @@ Neste projeto, os requisitos que desenvolvi de forma individual foram o 5 e o 10
 
 > Em relação aos requisitos 1, 2, 14 e 15 participei do desenvolvimento junto com o grupo, dando sugestões e opiniões.
 
-> Depois de finalizado o projeto, estilizei os arquivos. Para isto, trabalhei com CSS dentro do index.css e fiz algumas modificações nos componentes, que estão descritas nos commits.
+Depois de finalizado o projeto, estilizei os arquivos. Para isto, trabalhei com CSS dentro do index.css e também usei o Bootstrap em alguns elementos. Ao longo do processo de estilização, precisei fazer pequenas modificações nos componentes, que estão descritas nos commits.
 
-> Todos os demais arquivos dentro da pasta /src não citados por mim foram desenvolvidos por outros integrantes do grupo. 
+Todos os demais arquivos dentro da pasta /src não citados por mim foram desenvolvidos por outros integrantes do grupo. 
 
 ## Sobre o curso da Trybe
 O programa total de estudo conta com mais de 1.500 horas de aulas presenciais e online,divididas ao longo de 12 meses. O conteúdo aborda introdução ao desenvolvimento de software, front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais.
