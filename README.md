@@ -17,6 +17,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **2. Crie uma página de listagem de produtos vazia**
 
 <details><summary>Detalhes</summary>
@@ -28,6 +30,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **3. Crie a página do carrinho de compras**
 
@@ -44,6 +48,8 @@ Na tela principal, crie um elemento que redirecione a pessoa usuária à página
 </p>
 </details>
 
+---
+
 **4. Liste as categorias de produtos disponíveis via API na página principal**
 
 <details><summary>Detalhes</summary>
@@ -55,6 +61,8 @@ Na tela principal, crie um elemento que redirecione a pessoa usuária à página
 
 </p>
 </details>
+
+---
 
 **5. Liste os produtos buscados por termos, com os dados resumidos, associados a esses termos**
 
@@ -68,6 +76,8 @@ Na tela principal, crie um elemento que redirecione a pessoa usuária à página
 </p>
 </details>
 
+---
+
 **6. Selecione uma categoria e mostre somente os produtos daquela categoria**
 
 <details><summary>Detalhes</summary>
@@ -79,6 +89,8 @@ Na tela principal, crie um elemento que redirecione a pessoa usuária à página
 
 </p>
 </details>
+
+---
 
 **7. Redirecione para uma tela com a exibição detalhada ao clicar na exibição resumida de um produto**
 
@@ -93,6 +105,8 @@ Na tela principal, crie um elemento que redirecione a pessoa usuária à página
 
 </p>
 </details>
+
+---
 
 **8. Adicione produtos ao carrinho a partir da tela de listagem de produtos**
 
@@ -110,6 +124,8 @@ Na tela principal, crie um elemento que redirecione a pessoa usuária à página
 </p>
 </details>
 
+---
+
 **9. Adicione um produto ao carrinho a partir de sua tela de exibição detalhada**
 
 <details><summary>Detalhes</summary>
@@ -124,6 +140,8 @@ Na tela principal, crie um elemento que redirecione a pessoa usuária à página
 </p>
 </details>
 
+---
+
 **10. Visualize a lista de produtos adicionados ao carrinho em sua página e permita a manipulação da sua quantidade**
 
 <details><summary>Detalhes</summary>
@@ -137,6 +155,8 @@ Na tela principal, crie um elemento que redirecione a pessoa usuária à página
 
 </p>
 </details>
+
+---
 
 **11. Avalie e comente acerca de um produto em sua tela de exibição detalhada**
 
@@ -156,6 +176,8 @@ Na tela principal, crie um elemento que redirecione a pessoa usuária à página
 </p>
 </details>
 
+---
+
 **12. Finalize a compra vendo um resumo dela, preenchendo os seus dados e escolhendo a forma de pagamento**
 
 <details><summary>Detalhes</summary>
@@ -174,6 +196,8 @@ Na tela principal, crie um elemento que redirecione a pessoa usuária à página
 </p>
 </details>
 
+---
+
 REQUISITOS BÔNUS
 
 **13. Mostre junto ao ícone do carrinho a quantidade de produtos dentro dele, em todas as telas em que ele aparece**
@@ -188,6 +212,8 @@ REQUISITOS BÔNUS
 </p>
 </details>
 
+---
+
 **14. Limite a quantidade de produtos adicionados ao carrinho pela quantidade disponível em estoque**
 
 <details><summary>Detalhes</summary>
@@ -200,6 +226,8 @@ REQUISITOS BÔNUS
 </p>
 </details>
 
+---
+
 **15. Mostre quais produtos tem o frete grátis**
 
 <details><summary>Detalhes</summary>
@@ -211,6 +239,8 @@ REQUISITOS BÔNUS
 
 </p>
 </details>
+
+---
 
 ## Observações sobre o desenvolvimento
 
